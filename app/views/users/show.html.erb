@@ -1,6 +1,12 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>マイページ</h1>
+<table>
+  <tbody>
+	<tr>
+	  <td><%= attachment_image_tag @user, :profile_image_id, size: "100x100", fallback: "no_image.jpg" %></td>
+	  <td><%= @user.name %></td>
+	</tr>
+  </tbody>
+</table>
 
-<%= attachment_image_tag @user, :profile_image_id, size: "100x100", class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg" %>
-<%= @user.name %>
-<%#=# @user.post_id.caption %>
+<p><%= link_to "壁を登録" %></p>
+
