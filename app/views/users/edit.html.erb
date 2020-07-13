@@ -1,9 +1,23 @@
 
-<h4>User info</h4>
+<h4>ユーザー詳細</h4>
 
 <%= form_for(@user) do |f| %>
-	<%= f.text_field :name %>
-	<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
-	<%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-	<%= f.submit "Update User" %>
+  <div>
+  	<%= f.label :名前 %>
+	  <%= f.text_field :name %>
+  </div>
+  <div>
+  	<%= f.label :プロフィール画像 %>
+	  <p><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "100x100" %></p>
+  </div>
+  <div>
+  	<%= f.label :登録画像 %>
+	  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", onChange:"imgPreView(event)" %>
+	  <div id="preview"></div>
+  </div>
+  <div>
+  	<%= f.label :自己紹介 %>
+	  <p><%= f.text_area :introduction %><p>
+  </div>
+	<%= f.submit "情報を更新" %>
 <% end %>

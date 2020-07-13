@@ -1,0 +1,26 @@
+<table class="table">
+  	<thead>
+  		<tr>
+  			<th>場所</th>
+  			<th>写真</th>
+  			<th>題名</th>
+  			<th>本文</th>
+  			<th>住所</th>
+  			<th>高さ</th>
+  			<th>幅</th>
+  			<th>フェンス</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<tr>
+  			<td><%= @post.location_name %></td>
+  			<td><%= attachment_image_tag @post, :image %></td>
+  			<td><%= @post.caption %></td>
+  			<td><%= @post.explanation %></td>
+  			<td><%= @post.address %></td>
+  			<td><%= @post.height %></td>
+  			<td><%= @post.width %></td>
+  			<td><%= @post.fence %></td>
+  		</tr>
+  	</tbody>
+</table>

@@ -1,12 +1,25 @@
 <h1>マイページ</h1>
-<table>
-  <tbody>
-	<tr>
-	  <td><%= attachment_image_tag @user, :profile_image_id, size: "100x100", fallback: "no_image.jpg" %></td>
-	  <td><%= @user.name %></td>
-	</tr>
-  </tbody>
-</table>
-
-<p><%= link_to "壁を登録" %></p>
-
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10">
+      <table class="table">
+        <tbody>
+	      <tr>
+	　      <td>プロフィール画像</td>
+	       <td><%= attachment_image_tag @user, :profile_image, size: "100x100", fallback: "no_image.jpg" %></td>
+	      </tr>
+	      <tr>
+	        <td>名前</td>
+	        <td><%= @user.name %></td>
+	      </tr>
+	      <tr>
+	        <td>自己紹介</td>
+	        <td><%= @user.introduction %></td>
+	      </tr>
+        </tbody>
+      </table>
+      <div><%= link_to "壁を登録", new_post_path %></div>
+      <div><%= link_to "情報を編集する", edit_user_path(@user) %></div>
+    </div>
+  </div>
+</div>

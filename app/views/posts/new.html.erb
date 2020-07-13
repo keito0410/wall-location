@@ -1,0 +1,48 @@
+<!-- エラーメッセージ表示-->
+<% if @post.errors.any? %>
+  <h3><%= @post.errors.count %>error occurrence</h3><!--エラーメッセ-->
+  <ul>
+    <% @post.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<!-- エラーメッセージ表示-->
+
+<h1>壁登録ページ</h1>
+<%= form_for(@post) do |f| %>
+  <div>
+  	<%= f.label :名前 %>
+	<%= f.text_field :location_name, placeholder:"(例)○○公園" %>
+  </div>
+  <div>
+  	<%= f.label :写真 %>
+	<%= f.attachment_field :image, onChange:"imgPreView(event)" %>
+	<div id="preview"></div>
+  </div>
+  <div>
+  	<%= f.label :タイトル %>
+	<%= f.text_field :caption %>
+  </div>
+  <div>
+  	<%= f.label :オススメポイント %>
+	<%= f.text_area :explanation %>
+  </div>
+  <div>
+  	<%= f.label :住所 %>
+	<%= f.text_field :address %>
+  </div>
+  <div>
+  	<%= f.label :壁の高さ %>
+	<%= f.text_field :height %>
+  </div>
+  <div>
+  	<%= f.label :壁の幅 %>
+	<%= f.text_field :width %>
+  </div>
+  <div>
+  	<%= f.label :フェンスの有無 %>
+	<%= f.text_field :fence %>
+  </div>
+    <%= f.submit "壁登録" %>
+<% end %>

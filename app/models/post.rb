@@ -1,4 +1,4 @@
 class Post < ApplicationRecord
-	belongs_to :user
-	attachment :image_id
+	belongs_to :user, optional: true
+	attachment :image
 end
