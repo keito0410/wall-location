@@ -27,7 +27,7 @@
             <% if user_signed_in? %>
               <li><%= link_to 'home', user_path(current_user) %></li>
               <li><%= link_to 'search' %></li>
-              <li><%= link_to 'posts' %></li>
+              <li><%= link_to 'posts', posts_path %></li>
               <li><%= link_to 'logout', destroy_user_session_path, method: :delete %></li>
             <% else %>
               <li><%= link_to 'home', root_path %></li>
