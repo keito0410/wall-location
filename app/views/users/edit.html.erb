@@ -20,4 +20,5 @@
 	  <p><%= f.text_area :introduction %><p>
   </div>
 	<%= f.submit "情報を更新" %>
+  <%= link_to "退会する", user_path(@user), method: :delete, data: { confirm: 'アカウント情報・投稿が全て削除されます。本当に退会しますか？' } %>
 <% end %>

@@ -13,6 +13,11 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+      Comment.find_by(id: params[:id], post_id: params[:post_id]).destroy
+      redirect_to request.referer
+  end
+
   private
 
     def comment_params

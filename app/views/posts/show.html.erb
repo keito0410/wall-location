@@ -30,9 +30,11 @@
   <% @comments.each do |comment| %>
     <div>
       <%= comment.user.name unless comment.user.blank? %>
-      <%= comment.content %>
-    </div>
-  <% end %>
+        <%= comment.content %>
+        <% if comment.user == current_user%>
+          <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, remote: true %>
+        <% end %>
+      <% end %>
   <% if user_signed_in? %>
     <%= form_with(model: [@post, @comment], local: true) do |f| %>
       <%= f.text_area :content %>
